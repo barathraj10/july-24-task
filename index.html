@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // ====================================Majority of an Array========================================
+    function findMajorityElement(arr) {
+  let count = {};
+  let maxCount = 0;
+  let majorityElement = null;
+
+  for (let i = 0; i < arr.length; i++) {
+    let element = arr[i];
+    if (count[element]) {
+      count[element]++;
+    } else {
+      count[element] = 1;
+    }
+
+    if (count[element] > maxCount) {
+      maxCount = count[element];
+      majorityElement = element;
+    }
+  }
+
+  return majorityElement;
+}
+let arr = ["a", "b", "c", "a", "a", "b", "a", "c", "a"];
+console.log(findMajorityElement(arr));
+
+
+    //====================================Non-repeating Element=======================================
+function firstNonRepeatingChar(str) {
+    let charCount = {};
+    for (let i = 0; i < str.length; i++) {
+        let char = str[i];
+        if (charCount[char]) {
+            charCount[char]++;
+        } else {
+            charCount[char] = 1;
+        }
+    }
+    for (let i = 0; i < str.length; i++) {
+        let char = str[i];
+        if (charCount[char] === 1) {
+            return char;
+        }
+    }
+}
+console.log(firstNonRepeatingChar("abaccdeff"));  // Output: "b"
+</script>
+</html>
